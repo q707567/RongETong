@@ -7,10 +7,12 @@ import requests
 from PIL import Image
 from selenium.webdriver import ActionChains
 from Common.webkeys import WebKeys
+from Common.common import path_file
 
 
 class Common(WebKeys):
     def yzm(self):
+        path = path_file()
         while 1:
             target = self.driver.find_element_by_class_name("yidun_bg-img")
             template = self.driver.find_element_by_class_name("yidun_jigsaw")
@@ -18,11 +20,11 @@ class Common(WebKeys):
             template_link = template.get_attribute('src')
             target_img = Image.open(BytesIO(requests.get(target_link).content))
             template_img = Image.open(BytesIO(requests.get(template_link).content))
-            target_img.save('../Source/Image_yzm/target.jpg')  # 缺口图片
-            template_img.save('../Source/Image_yzm/template.png')  # 验证图片
-            img_rgb = cv2.imread('../Source/Image_yzm/target.jpg')
+            target_img.save(path + '/Source/Image_yzm/target.jpg')  # 缺口图片
+            template_img.save(path + '/Source/Image_yzm/template.png')  # 验证图片
+            img_rgb = cv2.imread(path + '/Source/Image_yzm/target.jpg')
             img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
-            template = cv2.imread('../Source/Image_yzm/template.png', 0)
+            template = cv2.imread(path + '/Source/Image_yzm/template.png', 0)
             run = 1
             res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
             # 使用二分法查找阈值的精确值

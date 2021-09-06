@@ -7,7 +7,7 @@ import yaml
 import os
 
 
-def path_file(pro='Merchant'):
+def path_file(pro='RongETong'):
     """
     获取项目所在路径
     """

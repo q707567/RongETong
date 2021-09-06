@@ -5,9 +5,9 @@ import time
 import pytest
 from Common.common import read_excel_file, xstr, list_tuple, path_file, get_times
 import allure
-from Project.Merchant.Login.login_oper import LoginOperation
+from Project.Pay.Login.login_oper import LoginOperation
 sys.path.append(os.getcwd())
-file = read_excel_file('/TestData/case.xlsx', 'merchant_login')
+file = read_excel_file('/TestData/case.xlsx', 'pay_login')
 file = list_tuple(file)
 
 
@@ -18,7 +18,7 @@ class TestLoginCase(object):
     def setup_class(self):
         self.operation = LoginOperation()
         self.operation.open_browser('windows', '91')
-        self.operation.get_url()
+        self.operation.get_url('https://www.cargonpay.com/back/#/login')
         path = path_file()
         get_time = get_times()
         self.path_images = path + '/Images/login_images' + get_time

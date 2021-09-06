@@ -24,8 +24,7 @@ class WebKeys(object):
             self.driver = Browser().docker_chrome_browser()
         self.driver.maximize_window()
 
-    def get_url(self):
-        url = ReadConfig().read_url()
+    def get_url(self, url):
         self.driver.get(url)
         self.driver.implicitly_wait(20)
 

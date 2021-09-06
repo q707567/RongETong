@@ -1,5 +1,5 @@
 import time
-from Project.Merchant.Regist.regist_page import Register
+from Project.Pay.Regist.regist_page import Register
 from Project.common_els import Common
 
 
