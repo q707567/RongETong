@@ -4,7 +4,7 @@ import pytest
 from Common.common import read_excel_file, xstr, list_tuple, path_file, get_times
 from Common.mysql import Mysql
 import allure
-from Project.Regist.regist_oper import RegisterOperation
+from Project.Merchant.Regist.regist_oper import RegisterOperation
 sys.path.append(os.getcwd())
 file = read_excel_file('/TestData/case.xlsx', 'regist')
 file = list_tuple(file)

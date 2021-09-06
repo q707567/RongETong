@@ -5,7 +5,7 @@ import time
 import pytest
 from Common.common import read_excel_file, xstr, list_tuple, path_file, get_times
 import allure
-from Project.Login.login_oper import LoginOperation
+from Project.Merchant.Login.login_oper import LoginOperation
 sys.path.append(os.getcwd())
 file = read_excel_file('/TestData/case.xlsx', 'login')
 file = list_tuple(file)
