@@ -5,6 +5,8 @@ import time
 import pandas as pd
 import yaml
 import os
+from pykeyboard import PyKeyboard
+
 
 
 def path_file(pro='RongETong'):
@@ -169,4 +171,16 @@ def get_times():
     get_time = time.localtime()
     get_time = time.strftime("%Y%m%d%H%M%S", get_time)
     return get_time
+
+
+def upload_file(path):
+    """
+    上传文件
+    """
+    k = PyKeyboard()
+    time.sleep(1)
+    k.type_string(path)
+    time.sleep(1)
+    k.tap_key(k.enter_key)
+    time.sleep(1)
 

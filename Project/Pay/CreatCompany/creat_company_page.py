@@ -28,3 +28,14 @@ class CreatCompany(WebKeys):
     def submit(self):
         self.element_location('xpath', '//button[@class="long ivu-btn ivu-btn-primary ivu-btn-long"]').click()
 
+
+class SelectCompany(WebKeys):
+
+    def select_url(self):
+        self.driver.get('https://www.cargonpay.com/back/#/company/select')
+
+    def select_company(self, value):
+        self.element_location('xpath', f'//a[@class="company-list-item cur"]/p[text()={value}]').click()
+
+
+
